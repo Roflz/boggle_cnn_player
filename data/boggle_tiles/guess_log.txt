@@ -1,0 +1,273 @@
+Screenshot 2025-04-16 155123_tile_00.png -> label:V, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_01.png -> label:I, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_02.png -> label:E, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_03.png -> label:Y, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_04.png -> label:N, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_05.png -> label:E, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_06.png -> label:A, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_07.png -> label:H, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_08.png -> label:F, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_09.png -> label:U, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_10.png -> label:T, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_11.png -> label:T, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_12.png -> label:T, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_13.png -> label:J, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_14.png -> label:I, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155123_tile_15.png -> label:P, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_00.png -> label:I, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_01.png -> label:H, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_02.png -> label:R, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_03.png -> label:S, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_04.png -> label:D, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_05.png -> label:O, bonus:DL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_06.png -> label:A, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_07.png -> label:G, bonus:DL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_08.png -> label:G, bonus:DL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_09.png -> label:I, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_10.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_11.png -> label:W, bonus:DW, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_12.png -> label:Z, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_13.png -> label:D, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_14.png -> label:T, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155223_tile_15.png -> label:D, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_00.png -> label:QU, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_01.png -> label:N, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_02.png -> label:E, bonus:TW, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_03.png -> label:S, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_04.png -> label:G, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_05.png -> label:E, bonus:TL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_06.png -> label:S, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_07.png -> label:R, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_08.png -> label:I, bonus:TL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_09.png -> label:S, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_10.png -> label:T, bonus:TL, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_11.png -> label:E, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_12.png -> label:J, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_13.png -> label:N, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_14.png -> label:C, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-16 155252_tile_15.png -> label:E, bonus:normal, cnn_guess:O, cnn_bonus:TW
+Screenshot 2025-04-17 020911_tile_00.png -> label:L, bonus:normal, cnn_guess:F, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_01.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_02.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_03.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_04.png -> label:H, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_05.png -> label:Y, bonus:normal, cnn_guess:V, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_06.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_07.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_08.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_09.png -> label:W, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_10.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_11.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_12.png -> label:E, bonus:normal, cnn_guess:Z, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_13.png -> label:F, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_14.png -> label:N, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 020911_tile_15.png -> label:U, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_00.png -> label:E, bonus:normal, cnn_guess:S, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_01.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_02.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_03.png -> label:G, bonus:normal, cnn_guess:S, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_04.png -> label:H, bonus:DL, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_05.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_06.png -> label:L, bonus:DL, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_07.png -> label:F, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_08.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_09.png -> label:W, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_10.png -> label:Y, bonus:normal, cnn_guess:T, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_11.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_12.png -> label:D, bonus:DL, cnn_guess:D, cnn_bonus:DL
+Screenshot 2025-04-17 020916_tile_13.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_14.png -> label:C, bonus:normal, cnn_guess:C, cnn_bonus:normal
+Screenshot 2025-04-17 020916_tile_15.png -> label:R, bonus:DW, cnn_guess:E, cnn_bonus:TL
+Screenshot 2025-04-17 021019_tile_00.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_01.png -> label:A, bonus:TW, cnn_guess:E, cnn_bonus:TW
+Screenshot 2025-04-17 021019_tile_02.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_03.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_04.png -> label:B, bonus:normal, cnn_guess:G, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_05.png -> label:U, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_06.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_07.png -> label:L, bonus:TL, cnn_guess:E, cnn_bonus:TL
+Screenshot 2025-04-17 021019_tile_08.png -> label:W, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_09.png -> label:Y, bonus:normal, cnn_guess:T, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_10.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_11.png -> label:N, bonus:TL, cnn_guess:W, cnn_bonus:TL
+Screenshot 2025-04-17 021019_tile_12.png -> label:E, bonus:normal, cnn_guess:Z, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_13.png -> label:L, bonus:TL, cnn_guess:E, cnn_bonus:TL
+Screenshot 2025-04-17 021019_tile_14.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal
+Screenshot 2025-04-17 021019_tile_15.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_00.png -> label:U, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_01.png -> label:R, bonus:normal, cnn_guess:S, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_02.png -> label:U, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_03.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_04.png -> label:M, bonus:normal, cnn_guess:N, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_05.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_06.png -> label:P, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_07.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_08.png -> label:E, bonus:normal, cnn_guess:F, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_09.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_10.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_11.png -> label:Y, bonus:normal, cnn_guess:Y, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_12.png -> label:V, bonus:normal, cnn_guess:V, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_13.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_14.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021351_tile_15.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021500_tile_00.png -> label:Z, bonus:normal, cnn_guess:Z, cnn_bonus:normal
+Screenshot 2025-04-17 021500_tile_01.png -> label:U, bonus:normal, cnn_guess:D, cnn_bonus:normal
+Screenshot 2025-04-17 021500_tile_02.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal
+Screenshot 2025-04-17 021500_tile_03.png -> label:O, bonus:DL, cnn_guess:O, cnn_bonus:DL
+Screenshot 2025-04-17 021500_tile_04.png -> label:C, bonus:DW, cnn_guess:E, cnn_bonus:TL, confidence:0.8317
+Screenshot 2025-04-17 021500_tile_05.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9984
+Screenshot 2025-04-17 021500_tile_06.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.6807
+Screenshot 2025-04-17 021500_tile_07.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, confidence:0.9659
+Screenshot 2025-04-17 021500_tile_08.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, confidence:0.9924
+Screenshot 2025-04-17 021500_tile_09.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, confidence:0.9963
+Screenshot 2025-04-17 021500_tile_10.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, confidence:0.9829
+Screenshot 2025-04-17 021500_tile_11.png -> label:Y, bonus:normal, cnn_guess:Y, cnn_bonus:normal, confidence:0.9728
+Screenshot 2025-04-17 021500_tile_12.png -> label:F, bonus:DL, cnn_guess:F, cnn_bonus:normal, confidence:0.8224
+Screenshot 2025-04-17 021500_tile_13.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, confidence:0.9967
+Screenshot 2025-04-17 021500_tile_14.png -> label:N, bonus:DL, cnn_guess:N, cnn_bonus:normal, confidence:0.9959
+Screenshot 2025-04-17 021500_tile_15.png -> label:W, bonus:normal, cnn_guess:W, cnn_bonus:normal, confidence:0.9712
+Screenshot 2025-04-17 021607_tile_00.png -> label:T, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.5058
+Screenshot 2025-04-17 021607_tile_01.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, confidence:0.9458
+Screenshot 2025-04-17 021607_tile_02.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9985
+Screenshot 2025-04-17 021607_tile_03.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal, confidence:0.9757
+Screenshot 2025-04-17 021607_tile_04.png -> label:O, bonus:TL, cnn_guess:G, cnn_bonus:TL, confidence:0.8624
+Screenshot 2025-04-17 021607_tile_05.png -> label:W, bonus:normal, cnn_guess:W, cnn_bonus:normal, confidence:0.9985
+Screenshot 2025-04-17 021607_tile_06.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, confidence:0.9813
+Screenshot 2025-04-17 021607_tile_07.png -> label:Y, bonus:TL, cnn_guess:T, cnn_bonus:TL, confidence:0.5513
+Screenshot 2025-04-17 021607_tile_08.png -> label:N, bonus:TW, cnn_guess:N, cnn_bonus:TW, confidence:0.6365
+Screenshot 2025-04-17 021607_tile_09.png -> label:C, bonus:normal, cnn_guess:C, cnn_bonus:normal, confidence:0.7856
+Screenshot 2025-04-17 021607_tile_10.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, confidence:0.9973
+Screenshot 2025-04-17 021607_tile_11.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, confidence:0.9836
+Screenshot 2025-04-17 021607_tile_12.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9838
+Screenshot 2025-04-17 021607_tile_13.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.9970
+Screenshot 2025-04-17 021607_tile_14.png -> label:I, bonus:TL, cnn_guess:I, cnn_bonus:TL, confidence:0.8985
+Screenshot 2025-04-17 021607_tile_15.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, confidence:0.9437
+Screenshot 2025-04-17 022715_tile_00.png -> label:T, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.5058
+Screenshot 2025-04-17 022715_tile_01.png -> label:P, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.4852
+Screenshot 2025-04-17 022715_tile_02.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, confidence:0.9699
+Screenshot 2025-04-17 022715_tile_03.png -> label:W, bonus:normal, cnn_guess:W, cnn_bonus:normal, confidence:0.9369
+Screenshot 2025-04-17 022715_tile_04.png -> label:W, bonus:normal, cnn_guess:W, cnn_bonus:normal, confidence:0.9847
+Screenshot 2025-04-17 022715_tile_05.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9986
+Screenshot 2025-04-17 022715_tile_06.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, confidence:0.9983
+Screenshot 2025-04-17 022715_tile_07.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, confidence:0.7703
+Screenshot 2025-04-17 022715_tile_08.png -> label:R, bonus:normal, cnn_guess:B, cnn_bonus:normal, confidence:0.3681
+Screenshot 2025-04-17 022715_tile_09.png -> label:K, bonus:normal, cnn_guess:A, cnn_bonus:normal, confidence:0.3837
+Screenshot 2025-04-17 022715_tile_10.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, confidence:0.9942
+Screenshot 2025-04-17 022715_tile_11.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, confidence:0.9783
+Screenshot 2025-04-17 022715_tile_12.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.9960
+Screenshot 2025-04-17 022715_tile_13.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9954
+Screenshot 2025-04-17 022715_tile_14.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, confidence:0.9471
+Screenshot 2025-04-17 022715_tile_15.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, confidence:0.9698
+Screenshot 2025-04-17 022818_tile_00.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal, confidence:0.8689
+Screenshot 2025-04-17 022818_tile_01.png -> label:F, bonus:normal, cnn_guess:F, cnn_bonus:normal, confidence:0.9861
+Screenshot 2025-04-17 022818_tile_02.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.7243
+Screenshot 2025-04-17 022818_tile_03.png -> label:T, bonus:DW, cnn_guess:T, cnn_bonus:TL, confidence:0.9321
+Screenshot 2025-04-17 022818_tile_04.png -> label:P, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.5906
+Screenshot 2025-04-17 022818_tile_05.png -> label:O, bonus:DL, cnn_guess:O, cnn_bonus:DL, confidence:0.9860
+Screenshot 2025-04-17 022818_tile_06.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9990
+Screenshot 2025-04-17 022818_tile_07.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, confidence:0.7885
+Screenshot 2025-04-17 022818_tile_08.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, confidence:0.9662
+Screenshot 2025-04-17 022818_tile_09.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, confidence:0.9207
+Screenshot 2025-04-17 022818_tile_10.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9992
+Screenshot 2025-04-17 022818_tile_11.png -> label:Y, bonus:normal, cnn_guess:Y, cnn_bonus:normal, confidence:0.9728
+Screenshot 2025-04-17 022818_tile_12.png -> label:G, bonus:DL, cnn_guess:G, cnn_bonus:DL, confidence:0.9316
+Screenshot 2025-04-17 022818_tile_13.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.9971
+Screenshot 2025-04-17 022818_tile_14.png -> label:H, bonus:DL, cnn_guess:H, cnn_bonus:DL, confidence:0.8426
+Screenshot 2025-04-17 022818_tile_15.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, confidence:0.8853
+Screenshot 2025-04-17 022946_tile_00.png -> label:T, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.5056
+Screenshot 2025-04-17 022946_tile_01.png -> label:T, bonus:TL, cnn_guess:T, cnn_bonus:TL, confidence:0.5906
+Screenshot 2025-04-17 022946_tile_02.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal, confidence:0.9527
+Screenshot 2025-04-17 022946_tile_03.png -> label:V, bonus:normal, cnn_guess:Y, cnn_bonus:normal, confidence:0.9357
+Screenshot 2025-04-17 022946_tile_04.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, confidence:0.9955
+Screenshot 2025-04-17 022946_tile_05.png -> label:Y, bonus:normal, cnn_guess:Y, cnn_bonus:normal, confidence:0.9755
+Screenshot 2025-04-17 022946_tile_06.png -> label:R, bonus:TL, cnn_guess:R, cnn_bonus:TL, confidence:0.9487
+Screenshot 2025-04-17 022946_tile_07.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, confidence:0.9621
+Screenshot 2025-04-17 022946_tile_08.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.9906
+Screenshot 2025-04-17 022946_tile_09.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, confidence:0.8993
+Screenshot 2025-04-17 022946_tile_10.png -> label:A, bonus:TL, cnn_guess:A, cnn_bonus:TL, confidence:0.9639
+Screenshot 2025-04-17 022946_tile_11.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, confidence:0.9803
+Screenshot 2025-04-17 022946_tile_12.png -> label:P, bonus:TW, cnn_guess:W, cnn_bonus:TL, confidence:0.3316
+Screenshot 2025-04-17 022946_tile_13.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, confidence:0.9940
+Screenshot 2025-04-17 022946_tile_14.png -> label:B, bonus:normal, cnn_guess:D, cnn_bonus:normal, confidence:0.4546
+Screenshot 2025-04-17 022946_tile_15.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal, confidence:0.9133
+Screenshot 2025-04-17 023614_tile_00.png -> label:Y, bonus:normal, cnn_guess:V, cnn_bonus:normal, letter_conf:0.5657, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_01.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, letter_conf:0.9445, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_02.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, letter_conf:0.9995, bonus_conf:0.9999
+Screenshot 2025-04-17 023614_tile_03.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9475, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_04.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal, letter_conf:0.9680, bonus_conf:0.9995
+Screenshot 2025-04-17 023614_tile_05.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.8204, bonus_conf:0.9934
+Screenshot 2025-04-17 023614_tile_06.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal, letter_conf:0.9979, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_07.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9280, bonus_conf:0.9999
+Screenshot 2025-04-17 023614_tile_08.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, letter_conf:0.9554, bonus_conf:0.9999
+Screenshot 2025-04-17 023614_tile_09.png -> label:V, bonus:normal, cnn_guess:V, cnn_bonus:normal, letter_conf:0.5422, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_10.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, letter_conf:0.9938, bonus_conf:0.9993
+Screenshot 2025-04-17 023614_tile_11.png -> label:P, bonus:normal, cnn_guess:P, cnn_bonus:normal, letter_conf:0.7901, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_12.png -> label:O, bonus:normal, cnn_guess:D, cnn_bonus:normal, letter_conf:0.6607, bonus_conf:0.9834
+Screenshot 2025-04-17 023614_tile_13.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, letter_conf:0.9806, bonus_conf:0.9999
+Screenshot 2025-04-17 023614_tile_14.png -> label:P, bonus:normal, cnn_guess:P, cnn_bonus:normal, letter_conf:0.8720, bonus_conf:1.0000
+Screenshot 2025-04-17 023614_tile_15.png -> label:H, bonus:normal, cnn_guess:H, cnn_bonus:normal, letter_conf:0.9696, bonus_conf:0.9998
+Screenshot 2025-04-17 023727_tile_00.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9819, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_01.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9231, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_02.png -> label:F, bonus:normal, cnn_guess:F, cnn_bonus:normal, letter_conf:0.8887, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_03.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, letter_conf:0.9686, bonus_conf:0.9998
+Screenshot 2025-04-17 023727_tile_04.png -> label:O, bonus:DL, cnn_guess:O, cnn_bonus:DL, letter_conf:0.8941, bonus_conf:0.9247
+Screenshot 2025-04-17 023727_tile_05.png -> label:V, bonus:normal, cnn_guess:V, cnn_bonus:normal, letter_conf:0.7056, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_06.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.9407, bonus_conf:0.9979
+Screenshot 2025-04-17 023727_tile_07.png -> label:T, bonus:DL, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9250, bonus_conf:0.8854
+Screenshot 2025-04-17 023727_tile_08.png -> label:Z, bonus:normal, cnn_guess:Z, cnn_bonus:normal, letter_conf:0.9821, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_09.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9984, bonus_conf:0.9999
+Screenshot 2025-04-17 023727_tile_10.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, letter_conf:0.9938, bonus_conf:0.9993
+Screenshot 2025-04-17 023727_tile_11.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, letter_conf:0.9987, bonus_conf:0.9999
+Screenshot 2025-04-17 023727_tile_12.png -> label:L, bonus:DW, cnn_guess:L, cnn_bonus:TL, letter_conf:0.8375, bonus_conf:0.9255
+Screenshot 2025-04-17 023727_tile_13.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9944, bonus_conf:0.9999
+Screenshot 2025-04-17 023727_tile_14.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, letter_conf:0.9808, bonus_conf:1.0000
+Screenshot 2025-04-17 023727_tile_15.png -> label:L, bonus:DL, cnn_guess:L, cnn_bonus:normal, letter_conf:0.8660, bonus_conf:0.5151
+Screenshot 2025-04-17 023842_tile_00.png -> label:V, bonus:TL, cnn_guess:V, cnn_bonus:TL, letter_conf:0.5961, bonus_conf:0.9128
+Screenshot 2025-04-17 023842_tile_01.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, letter_conf:0.9592, bonus_conf:0.9998
+Screenshot 2025-04-17 023842_tile_02.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.8556, bonus_conf:0.9993
+Screenshot 2025-04-17 023842_tile_03.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9475, bonus_conf:1.0000
+Screenshot 2025-04-17 023842_tile_04.png -> label:I, bonus:normal, cnn_guess:I, cnn_bonus:normal, letter_conf:0.9960, bonus_conf:0.9998
+Screenshot 2025-04-17 023842_tile_05.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, letter_conf:0.9167, bonus_conf:0.9999
+Screenshot 2025-04-17 023842_tile_06.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9672, bonus_conf:0.9999
+Screenshot 2025-04-17 023842_tile_07.png -> label:N, bonus:TL, cnn_guess:N, cnn_bonus:TL, letter_conf:0.8109, bonus_conf:0.7340
+Screenshot 2025-04-17 023842_tile_08.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9775, bonus_conf:0.9999
+Screenshot 2025-04-17 023842_tile_09.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, letter_conf:0.9998, bonus_conf:0.9986
+Screenshot 2025-04-17 023842_tile_10.png -> label:H, bonus:TL, cnn_guess:H, cnn_bonus:TL, letter_conf:0.7026, bonus_conf:0.7698
+Screenshot 2025-04-17 023842_tile_11.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.9098, bonus_conf:0.9996
+Screenshot 2025-04-17 023842_tile_12.png -> label:W, bonus:normal, cnn_guess:W, cnn_bonus:normal, letter_conf:0.9422, bonus_conf:0.9966
+Screenshot 2025-04-17 023842_tile_13.png -> label:O, bonus:TW, cnn_guess:O, cnn_bonus:TW, letter_conf:0.9084, bonus_conf:0.4242
+Screenshot 2025-04-17 023842_tile_14.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal, letter_conf:0.9854, bonus_conf:1.0000
+Screenshot 2025-04-17 023842_tile_15.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9697, bonus_conf:0.9995
+Screenshot 2025-04-17 024753_tile_00.png -> label:G, bonus:normal, cnn_guess:G, cnn_bonus:normal, letter_conf:0.8220, bonus_conf:0.9996
+Screenshot 2025-04-17 024753_tile_01.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, letter_conf:0.9600, bonus_conf:0.9998
+Screenshot 2025-04-17 024753_tile_02.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, letter_conf:0.9752, bonus_conf:0.9998
+Screenshot 2025-04-17 024753_tile_03.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9475, bonus_conf:1.0000
+Screenshot 2025-04-17 024753_tile_04.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, letter_conf:0.9003, bonus_conf:0.9997
+Screenshot 2025-04-17 024753_tile_05.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.8204, bonus_conf:0.9934
+Screenshot 2025-04-17 024753_tile_06.png -> label:D, bonus:normal, cnn_guess:D, cnn_bonus:normal, letter_conf:0.7765, bonus_conf:0.9997
+Screenshot 2025-04-17 024753_tile_07.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9280, bonus_conf:0.9999
+Screenshot 2025-04-17 024753_tile_08.png -> label:N, bonus:normal, cnn_guess:N, cnn_bonus:normal, letter_conf:0.9127, bonus_conf:0.9993
+Screenshot 2025-04-17 024753_tile_09.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, letter_conf:0.9838, bonus_conf:1.0000
+Screenshot 2025-04-17 024753_tile_10.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9812, bonus_conf:0.9999
+Screenshot 2025-04-17 024753_tile_11.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9929, bonus_conf:1.0000
+Screenshot 2025-04-17 024753_tile_12.png -> label:A, bonus:normal, cnn_guess:A, cnn_bonus:normal, letter_conf:0.9476, bonus_conf:0.9998
+Screenshot 2025-04-17 024753_tile_13.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9951, bonus_conf:0.9998
+Screenshot 2025-04-17 024753_tile_14.png -> label:M, bonus:normal, cnn_guess:H, cnn_bonus:normal, letter_conf:0.3694, bonus_conf:0.9997
+Screenshot 2025-04-17 024753_tile_15.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9885, bonus_conf:1.0000
+Screenshot 2025-04-17 024902_tile_00.png -> label:O, bonus:DL, cnn_guess:O, cnn_bonus:DL, letter_conf:0.7989, bonus_conf:0.7806
+Screenshot 2025-04-17 024902_tile_01.png -> label:L, bonus:normal, cnn_guess:L, cnn_bonus:normal, letter_conf:0.9599, bonus_conf:0.9998
+Screenshot 2025-04-17 024902_tile_02.png -> label:O, bonus:normal, cnn_guess:O, cnn_bonus:normal, letter_conf:0.8555, bonus_conf:0.9993
+Screenshot 2025-04-17 024902_tile_03.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.7862, bonus_conf:1.0000
+Screenshot 2025-04-17 024902_tile_04.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9949, bonus_conf:0.9999
+Screenshot 2025-04-17 024902_tile_05.png -> label:S, bonus:normal, cnn_guess:S, cnn_bonus:normal, letter_conf:0.9940, bonus_conf:1.0000
+Screenshot 2025-04-17 024902_tile_06.png -> label:H, bonus:DL, cnn_guess:H, cnn_bonus:normal, letter_conf:0.9565, bonus_conf:0.9400
+Screenshot 2025-04-17 024902_tile_07.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9872, bonus_conf:1.0000
+Screenshot 2025-04-17 024902_tile_08.png -> label:T, bonus:normal, cnn_guess:T, cnn_bonus:normal, letter_conf:0.9775, bonus_conf:0.9999
+Screenshot 2025-04-17 024902_tile_09.png -> label:E, bonus:normal, cnn_guess:E, cnn_bonus:normal, letter_conf:0.9984, bonus_conf:0.9999
+Screenshot 2025-04-17 024902_tile_10.png -> label:G, bonus:normal, cnn_guess:G, cnn_bonus:normal, letter_conf:0.4788, bonus_conf:0.9996
+Screenshot 2025-04-17 024902_tile_11.png -> label:P, bonus:DW, cnn_guess:P, cnn_bonus:DW, letter_conf:0.6039, bonus_conf:0.6371
+Screenshot 2025-04-17 024902_tile_12.png -> label:X, bonus:normal, cnn_guess:K, cnn_bonus:normal, letter_conf:0.3799, bonus_conf:1.0000
+Screenshot 2025-04-17 024902_tile_13.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, letter_conf:0.4000, bonus_conf:0.9589
+Screenshot 2025-04-17 024902_tile_13.png -> label:R, bonus:DL, cnn_guess:R, cnn_bonus:normal, letter_conf:0.4000, bonus_conf:0.9589
+Screenshot 2025-04-17 024902_tile_14.png -> label:U, bonus:normal, cnn_guess:U, cnn_bonus:normal, letter_conf:0.9995, bonus_conf:0.9996
+Screenshot 2025-04-17 024902_tile_15.png -> label:R, bonus:normal, cnn_guess:R, cnn_bonus:normal, letter_conf:0.8849, bonus_conf:1.0000
