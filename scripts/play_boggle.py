@@ -1,18 +1,15 @@
 import pyautogui
 import time
-import argparse
 import keyboard
 from typing import List, Tuple
-from overlay import draw_overlay_path
+from overlay import draw_overlay_path, show_paused_label, close_all_overlays
 
-# === CONFIG ===
 GRID_SIZE = 4
 SCREEN_TOP_LEFT = (800, 500)
 SCREEN_BOTTOM_RIGHT = (1400, 1100)
 TILE_DELAY = 0.05
 WORD_DELAY = 0.2
 
-# === HELPERS ===
 def get_tile_coordinates() -> List[List[Tuple[int, int]]]:
     x1, y1 = SCREEN_TOP_LEFT
     x2, y2 = SCREEN_BOTTOM_RIGHT
@@ -52,17 +49,20 @@ def play_words(paths: List[Tuple[str, List[Tuple[int, int]]]], preview_only=Fals
     for i, (word, path) in enumerate(paths):
         print(f"\n▶ Word {i+1}/{len(paths)}: {word} ({len(path)} letters)")
         draw_path(path, tile_coords)
-        draw_overlay_path(path, word)
 
         if preview_only:
-            print("⏸️ Waiting for SPACE to continue, ESC to quit...")
+            show_paused_label(word)
             while True:
                 if keyboard.is_pressed("space"):
+                    close_all_overlays()
+                    draw_overlay_path(path, word)
                     break
                 elif keyboard.is_pressed("esc"):
+                    close_all_overlays()
                     print("⛔ Preview exited early by user.")
                     return
                 time.sleep(0.05)
         else:
+            draw_overlay_path(path, word)
             click_path(path, tile_coords)
             time.sleep(WORD_DELAY)

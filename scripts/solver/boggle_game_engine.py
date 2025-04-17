@@ -92,7 +92,8 @@ class TrieNode:
 
 class BoggleSolver:
     def __init__(self, board: List[List[str]], modifiers: List[List[str]], dictionary: List[str]):
-        self.board = board
+        # Normalize board letters to lowercase
+        self.board = [[ch.lower() for ch in row] for row in board]
         self.modifiers = modifiers
         self.rows = len(board)
         self.cols = len(board[0])
@@ -112,16 +113,30 @@ class BoggleSolver:
             score: int = 0, word_multiplier: int = 1, path: List[Tuple[int, int]] = []):
 
         if (r < 0 or r >= self.rows or c < 0 or c >= self.cols or
-            (r, c) in visited or self.board[r][c] not in node.children):
+            (r, c) in visited):
             return
+
+        letter = self.board[r][c]
+
+        # Special handling for 'qu'
+        if letter == 'qu':
+            if 'q' not in node.children:
+                return
+            node = node.children['q']
+            if 'u' not in node.children:
+                return
+            node = node.children['u']
+            letter_score = LETTER_POINTS.get('q', 0) + LETTER_POINTS.get('u', 0)
+        else:
+            if letter not in node.children:
+                return
+            node = node.children[letter]
+            letter_score = LETTER_POINTS.get(letter, 0)
 
         visited.add((r, c))
         path.append((r, c))
 
-        letter = self.board[r][c]
-        letter_score = LETTER_POINTS.get(letter, 0)
         mod = self.modifiers[r][c]
-
         if mod == 'DL':
             letter_score *= 2
         elif mod == 'TL':
@@ -131,7 +146,6 @@ class BoggleSolver:
         elif mod == 'TW':
             word_multiplier *= 3
 
-        node = node.children[letter]
         score += letter_score
 
         if node.word and node.word not in self.found_words:
@@ -145,33 +159,11 @@ class BoggleSolver:
         visited.remove((r, c))
         path.pop()
 
-    def solve(self):
+    def find_all_words(self):
         for r in range(self.rows):
             for c in range(self.cols):
                 self.dfs(r, c, self.trie_root, set())
         return self.found_words
-
-    def print_board(self):
-        print("\nBoggle Board:")
-        for r in range(self.rows):
-            row = ""
-            for c in range(self.cols):
-                ch = self.board[r][c].upper()
-                mod = self.modifiers[r][c]
-                color = {
-                    'DL': Fore.CYAN,
-                    'TL': Fore.MAGENTA,
-                    'DW': Fore.GREEN,
-                    'TW': Fore.RED
-                }.get(mod, Fore.WHITE)
-                row += color + f" {ch} " + Style.RESET_ALL
-            print(row)
-
-    def print_results(self):
-        print("\nFound Words:")
-        for word, (score, path) in sorted(self.found_words.items(), key=lambda x: -x[1][0]):
-            coords = "->".join([f"({r},{c})" for r, c in path])
-            print(f"{word.upper():<12} | Score: {score:<3} | Path: {coords}")
 
 
 def generate_random_board(dice: List[str]) -> List[List[str]]:
@@ -179,9 +171,21 @@ def generate_random_board(dice: List[str]) -> List[List[str]]:
     return [selected[i:i+4] for i in range(0, 16, 4)]
 
 
-def load_dictionary(min_length=3) -> List[str]:
-    with open("../../data/words_alpha.txt") as f:
-        return [line.strip() for line in f if len(line.strip()) >= min_length]
+def load_dictionary(min_length=3) -> list[str]:
+    # Try multiple paths to find the dictionary file
+    possible_paths = [
+        os.path.join("data", "words_alpha.txt"),  # Relative to project root
+        os.path.join(os.path.dirname(__file__), "..", "..", "data", "words_alpha.txt"),  # From script
+        "words_alpha.txt"  # Fallback: same directory
+    ]
+
+    for path in possible_paths:
+        if os.path.exists(path):
+            with open(path) as f:
+                return [line.strip() for line in f if len(line.strip()) >= min_length]
+
+    raise FileNotFoundError("❌ Could not find 'words_alpha.txt' in any expected location.")
+
 
 def is_word_possible(word: str, board_counter: Counter) -> bool:
     word_counter = Counter(word)

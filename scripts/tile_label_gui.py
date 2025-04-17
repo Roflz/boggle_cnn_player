@@ -46,6 +46,7 @@ class LabelGUI:
 
         self.skip_existing = BooleanVar(value=True)
         self.use_cnn_guess = BooleanVar(value=True)
+        self.skip_high_confidence = BooleanVar(value=False)
 
         self.img_label = tk.Label(self.root, bg=BG_COLOR)
         self.img_label.pack(pady=10)
@@ -67,6 +68,7 @@ class LabelGUI:
         Button(control_frame, text="↩ Undo (Z)", command=self.undo_tile, bg="#444", fg=TEXT_COLOR).pack(side="left", padx=8)
         Checkbutton(control_frame, text="Skip already labeled", variable=self.skip_existing, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
         Checkbutton(control_frame, text="Use CNN as default", variable=self.use_cnn_guess, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
+        Checkbutton(control_frame, text="Skip high confidence tiles", variable=self.skip_high_confidence, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
 
         self.help_label = tk.Label(self.root, text="1 = Normal   2 = DL   3 = TL   4 = DW   5 = TW", fg="#888", bg=BG_COLOR, font=("Courier", 10))
         self.help_label.pack()
@@ -110,6 +112,11 @@ class LabelGUI:
             self.last_guess = (self.cnn, self.cnn_bonus)
             self.bonus = self.cnn_bonus if self.cnn_bonus != 0 else 0
 
+            if self.skip_high_confidence.get() and self.cnn_confidence == 1 and self.bonus_confidence == 1:
+                self.index += 1
+                self.load_image()
+                return
+
             self.feedback.config(text="")
             self.update_info()
             return
@@ -133,13 +140,11 @@ class LabelGUI:
         flag = "  ⚠️" if self.bonus_confidence < 0.65 else ""
 
         self.info.config(
-            text=(
-                f"📄 File:            {file}\n"
-                f"🔠 Tesseract Guess: {self.tess}{'  ⛔' if disagrees else ''}\n"
-                f"🧠 CNN Guess:       {self.cnn} ({BONUS_CLASSES[self.cnn_bonus]}){flag}\n"
-                f"   Letter Conf:     {self.cnn_confidence:.1%}\n"
-                f"   Bonus Conf:      {self.bonus_confidence:.1%}\n"
-            ),
+            text=(f"📄 File:            {file}\n"
+                  f"🔠 Tesseract Guess: {self.tess}{'  ⛔' if disagrees else ''}\n"
+                  f"🧠 CNN Guess:       {self.cnn} ({BONUS_CLASSES[self.cnn_bonus]}){flag}\n"
+                  f"   Letter Conf:     {self.cnn_confidence:.1%}\n"
+                  f"   Bonus Conf:      {self.bonus_confidence:.1%}\n"),
             fg=TEXT_COLOR,
             bg=BG_COLOR
         )
@@ -159,12 +164,14 @@ class LabelGUI:
         elif key in ['1', '2', '3', '4', '5']:
             self.bonus = int(key) - 1
             self.feedback.config(text=f"✔ Bonus set to {BONUS_CLASSES[self.bonus]}")
+
         elif key == 'RETURN':
             self.confirm_tile()
         elif key == 'Z':
             self.undo_tile()
         elif key == 'ESCAPE':
             self.root.quit()
+
         self.update_info()
 
     def confirm_tile(self):

@@ -42,7 +42,24 @@ def classify_board(predictor, image_path):
 def solve_board(board, modifiers):
     dictionary = load_dictionary()
     solver = BoggleSolver(board, modifiers, dictionary)
-    return solver.find_all_words()
+    results = solver.find_all_words()
+
+    if not results:
+        print("⚠️ No words found! Showing dictionary-matching debug:")
+        print("Sample board:", board)
+        board_letters = [ch for row in board for ch in row]
+        print("Board letters used:", board_letters)
+
+        # Show some dictionary words that could match
+        print("🔎 Possible matches from dictionary:")
+        for word in dictionary:
+            if all(board_letters.count(ch) >= word.count(ch) for ch in set(word)):
+                print("  ", word)
+                if len(word) > 6:
+                    break
+
+    return results
+
 
 def main(preview_mode):
     capture_board()
@@ -57,10 +74,13 @@ def main(preview_mode):
 
     print("\n🔎 Solving board...")
     raw_paths = solve_board(board, modifiers)
+
     print(f"✅ Found {len(raw_paths)} words")
 
     print("\n🎯 Optimizing word order for scoring...")
-    paths = optimize_word_order(raw_paths)
+    # Convert from: { word: (score, path) } to: [ (word, path) ]
+    paths_input = [(word, path) for word, (_, path) in raw_paths.items()]
+    paths = optimize_word_order(paths_input)
 
     print("\n🎮 Executing moves...")
     play_words(paths, preview_only=preview_mode)
