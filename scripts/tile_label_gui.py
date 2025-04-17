@@ -80,6 +80,12 @@ class LabelGUI:
             lbl.pack(side="left", padx=5)
 
         self.root.bind("<Key>", self.key_press)
+
+        # Show total number of tiles at the start
+        self.total_tiles = len(self.files)
+        self.index = 0
+        self.show_progress()
+
         self.load_image()
         self.root.mainloop()
 
@@ -94,12 +100,17 @@ class LabelGUI:
                         basenames.add(base)
         return basenames
 
+    def show_progress(self):
+        progress_text = f"Progress: {self.index + 1}/{self.total_tiles} tiles labeled"
+        self.info.config(text=progress_text)
+
     def load_image(self):
         while self.index < len(self.files):
             file = self.files[self.index]
             base = os.path.splitext(file)[0]
             if self.skip_existing.get() and base in self.labeled_basenames:
                 self.index += 1
+                self.show_progress()
                 continue
 
             path = os.path.join(UNLABELED_DIR, file)
@@ -112,8 +123,14 @@ class LabelGUI:
             self.last_guess = (self.cnn, self.cnn_bonus)
             self.bonus = self.cnn_bonus if self.cnn_bonus != 0 else 0
 
-            if self.skip_high_confidence.get() and self.cnn_confidence == 1 and self.bonus_confidence == 1:
+            # Skip high-confidence tiles if checkbox is checked
+            if self.skip_high_confidence.get() and self.cnn_confidence >= 0.995 and self.bonus_confidence >= 0.995:
+                print(f"Skipping {file} with high CNN confidence. Letter Conf: {self.cnn_confidence:.4f}, Bonus Conf: {self.bonus_confidence:.4f}")
+                # Save skipped tile if not 100% confidence
+                if self.cnn_confidence < 1.0000 and self.bonus_confidence < 1.0000:
+                    self.save_label(self.cnn)
                 self.index += 1
+                self.show_progress()
                 self.load_image()
                 return
 
