@@ -1,18 +1,13 @@
-import random
-from typing import List, Tuple, Dict, Set
-from collections import defaultdict, Counter
-from colorama import Fore, Style, init
+# boggle_game_engine.py
+
+import os
 import hashlib
 import pickle
-import os
-from PIL import Image, ImageOps
-import pytesseract
-import numpy as np
-
-init(autoreset=True)
+from typing import List, Tuple, Dict
+from collections import Counter
 
 # ---- Letter values like Scrabble ----
-LETTER_POINTS = {
+LETTER_POINTS: Dict[str, int] = {
     'a': 1, 'b': 3, 'c': 3, 'd': 2,
     'e': 1, 'f': 4, 'g': 2, 'h': 4,
     'i': 1, 'j': 8, 'k': 5, 'l': 1,
@@ -22,214 +17,175 @@ LETTER_POINTS = {
     'y': 4, 'z': 10
 }
 
-# ---- Boggle Dice for Random Boards ----
-BOGGLE_DICE_4x4 = [
-    "aaeegn", "abbjoo", "achops", "affkps",
-    "aoottw", "cimotu", "deilrx", "delrvy",
-    "distty", "eeghnw", "eeinsu", "ehrtvw",
-    "eiosst", "elrtty", "himnqu", "hlnnrz"
-]
+GRID_SIZE = 4
+TRIE_CACHE_DIR = ".trie_cache"
+DICT_CACHE_DIR = ".boggle_cache"
+DICT_PATH = os.path.join("data", "twl06.txt")
 
-def extract_board_from_image(image_path: str, crop_coords: Tuple[int, int, int, int], grid_size=4):
-    img = Image.open(image_path).convert("RGB")
-    cropped = img.crop(crop_coords)
-    gray = ImageOps.grayscale(cropped)
-
-    width, height = gray.size
-    tile_w, tile_h = width // grid_size, height // grid_size
-
-    letters = []
-    modifiers = []
-
-    for r in range(grid_size):
-        letter_row = []
-        mod_row = []
-        for c in range(grid_size):
-            left = c * tile_w
-            top = r * tile_h
-            right = left + tile_w
-            bottom = top + tile_h
-            tile = gray.crop((left, top, right, bottom))
-            tile = tile.resize((tile_w * 2, tile_h * 2))  # enlarge for OCR
-            processed = tile.point(lambda x: 0 if x < 160 else 255, '1')
-            text = pytesseract.image_to_string(processed, config='--psm 10 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ').strip()
-            letter_row.append(text[0].lower() if text else '?')
-
-            rgb_tile = cropped.crop((left, top, right, bottom)).resize((10, 10))
-            avg_color = np.array(rgb_tile).mean(axis=(0, 1))
-            mod_row.append(identify_modifier_from_color(avg_color))
-
-        letters.append(letter_row)
-        modifiers.append(mod_row)
-
-    return letters, modifiers
-
-def identify_modifier_from_color(rgb):
-    r, g, b = rgb
-    if g > 180 and r < 150 and b < 150:
-        return 'DW'  # greenish
-    elif r > 180 and b > 180 and g < 160:
-        return 'TW'  # purple/magenta
-    elif b > 180 and r < 150 and g < 150:
-        return 'DL'  # blueish
-    elif r > 180 and g < 150 and b < 150:
-        return 'TL'  # red/orange
-    else:
-        return ''
-
-# ---- Board Scoring Modifiers Default ----
-MODIFIERS_4x4 = [
-    ['DL', '', '', 'TL'],
-    ['', 'DW', '', ''],
-    ['', '', 'TW', ''],
-    ['DL', '', '', 'DL']
-]
+os.makedirs(TRIE_CACHE_DIR, exist_ok=True)
+os.makedirs(DICT_CACHE_DIR, exist_ok=True)
 
 class TrieNode:
+    __slots__ = ('children', 'word')
     def __init__(self):
-        self.children = {}
-        self.word = None
-
-class BoggleSolver:
-    def __init__(self, board: List[List[str]], modifiers: List[List[str]], dictionary: List[str]):
-        # Normalize board letters to lowercase
-        self.board = [[ch.lower() for ch in row] for row in board]
-        self.modifiers = modifiers
-        self.rows = len(board)
-        self.cols = len(board[0])
-        self.trie_root = self.build_trie(dictionary)
-        self.found_words: Dict[str, Tuple[int, List[Tuple[int, int]]]] = {}
-
-    def build_trie(self, words: List[str]) -> TrieNode:
-        root = TrieNode()
-        for word in words:
-            node = root
-            for char in word:
-                node = node.children.setdefault(char, TrieNode())
-            node.word = word
-        return root
-
-    def dfs(self, r: int, c: int, node: TrieNode, visited: Set[Tuple[int, int]],
-            score: int = 0, word_multiplier: int = 1, path: List[Tuple[int, int]] = []):
-
-        if (r < 0 or r >= self.rows or c < 0 or c >= self.cols or
-            (r, c) in visited):
-            return
-
-        letter = self.board[r][c]
-
-        # Special handling for 'qu'
-        if letter == 'qu':
-            if 'q' not in node.children:
-                return
-            node = node.children['q']
-            if 'u' not in node.children:
-                return
-            node = node.children['u']
-            letter_score = LETTER_POINTS.get('q', 0) + LETTER_POINTS.get('u', 0)
-        else:
-            if letter not in node.children:
-                return
-            node = node.children[letter]
-            letter_score = LETTER_POINTS.get(letter, 0)
-
-        visited.add((r, c))
-        path.append((r, c))
-
-        mod = self.modifiers[r][c]
-        if mod == 'DL':
-            letter_score *= 2
-        elif mod == 'TL':
-            letter_score *= 3
-        elif mod == 'DW':
-            word_multiplier *= 2
-        elif mod == 'TW':
-            word_multiplier *= 3
-
-        score += letter_score
-
-        if node.word and node.word not in self.found_words:
-            self.found_words[node.word] = (score * word_multiplier, path[:])
-
-        for dr in [-1, 0, 1]:
-            for dc in [-1, 0, 1]:
-                if dr != 0 or dc != 0:
-                    self.dfs(r + dr, c + dc, node, visited, score, word_multiplier, path)
-
-        visited.remove((r, c))
-        path.pop()
-
-    def find_all_words(self):
-        for r in range(self.rows):
-            for c in range(self.cols):
-                self.dfs(r, c, self.trie_root, set())
-        return self.found_words
-
-
-def generate_random_board(dice: List[str]) -> List[List[str]]:
-    selected = [random.choice(die) for die in random.sample(dice, len(dice))]
-    return [selected[i:i+4] for i in range(0, 16, 4)]
-
-
-def load_dictionary(min_length=3) -> list[str]:
-    # Try multiple paths to find the dictionary file
-    possible_paths = [
-        os.path.join("data", "words_alpha.txt"),  # Relative to project root
-        os.path.join(os.path.dirname(__file__), "..", "..", "data", "words_alpha.txt"),  # From script
-        "words_alpha.txt"  # Fallback: same directory
-    ]
-
-    for path in possible_paths:
-        if os.path.exists(path):
-            with open(path) as f:
-                return [line.strip() for line in f if len(line.strip()) >= min_length]
-
-    raise FileNotFoundError("❌ Could not find 'words_alpha.txt' in any expected location.")
-
-
-def is_word_possible(word: str, board_counter: Counter) -> bool:
-    word_counter = Counter(word)
-    return all(word_counter[ch] <= board_counter[ch] for ch in word_counter)
+        self.children: Dict[str, 'TrieNode'] = {}
+        self.word: str = None
 
 def board_hash(board: List[List[str]]) -> str:
-    flat = ''.join(''.join(row) for row in board)
+    flat = ''.join(ch for row in board for ch in row)
     return hashlib.md5(flat.encode()).hexdigest()
 
-def get_or_cache_filtered_words(board, wordlist_path="words_alpha.txt", cache_dir=".boggle_cache"):
-    os.makedirs(cache_dir, exist_ok=True)
-    hash_key = board_hash(board)
-    cache_file = os.path.join(cache_dir, f"{hash_key}.pkl")
+def load_dictionary(min_length: int = 3) -> List[str]:
+    with open(DICT_PATH, encoding='utf-8') as f:
+        return [w.strip().lower() for w in f if len(w.strip()) >= min_length]
 
+def get_or_cache_filtered_words(board: List[List[str]]) -> List[str]:
+    key = board_hash(board)
+    cache_file = os.path.join(DICT_CACHE_DIR, f"{key}.pkl")
     if os.path.exists(cache_file):
-        with open(cache_file, 'rb') as f:
-            return pickle.load(f)
-
-    all_words = load_dictionary()
-    board_counter = Counter(ch for row in board for ch in row)
-    filtered = [
-        word for word in all_words
-        if is_word_possible(word, board_counter)
-    ]
-
+        return pickle.load(open(cache_file, 'rb'))
+    full = load_dictionary()
+    counts = Counter(ch for row in board for ch in row)
+    filtered = [w for w in full if all(w.count(ch) <= counts[ch] for ch in set(w))]
     with open(cache_file, 'wb') as f:
         pickle.dump(filtered, f)
-
     return filtered
 
-def main():
-    # Uncomment to run from a screenshot
-    board, modifiers = extract_board_from_image("data\\screenshots\\Screenshot 2025-04-16 155123.png", (811, 508, 1395, 1090))
+def _dfs_worker(args):
+    start, B, M, neighbors, trie_root = args
+    found: Dict[str, Tuple[int, List[int]]] = {}
 
-    # Uncomment to run from a randomly generated board
-    # board = generate_random_board(BOGGLE_DICE_4x4)
-    # modifiers = MODIFIERS_4x4
-    dictionary = get_or_cache_filtered_words(board)
+    # initialize for start position
+    ch0 = B[start]
+    node = trie_root
+    score0, wmul0 = 0, 1
 
-    solver = BoggleSolver(board, modifiers, dictionary)
-    solver.print_board()
-    solver.solve()
-    solver.print_results()
+    # handle 'qu'
+    if ch0 == 'qu':
+        if 'q' not in node.children: return found
+        node = node.children['q']
+        if 'u' not in node.children: return found
+        node = node.children['u']
+        ls = LETTER_POINTS['q'] + LETTER_POINTS['u']
+    else:
+        if ch0 not in node.children: return found
+        node = node.children[ch0]
+        ls = LETTER_POINTS.get(ch0, 0)
 
+    # apply modifier
+    mod0 = M[start]
+    if mod0 == 'DL': ls *= 2
+    elif mod0 == 'TL': ls *= 3
+    elif mod0 == 'DW': wmul0 *= 2
+    elif mod0 == 'TW': wmul0 *= 3
 
-if __name__ == "__main__":
-    main()
+    score0 = ls
+    if node.word:
+        found[node.word] = (score0*wmul0, [start])
+
+    # DFS stack
+    stack = [(start, node, 1<<start, score0, wmul0, [start])]
+    while stack:
+        pos, nd, vis, sc, wm, path = stack.pop()
+        for nxt in neighbors[pos]:
+            if vis & (1<<nxt):
+                continue
+            ch = B[nxt]
+            node2 = nd
+            sc2, wm2 = sc, wm
+
+            if ch == 'qu':
+                if 'q' not in node2.children: continue
+                node2 = node2.children['q']
+                if 'u' not in node2.children: continue
+                node2 = node2.children['u']
+                ls2 = LETTER_POINTS['q'] + LETTER_POINTS['u']
+            else:
+                if ch not in node2.children: continue
+                node2 = node2.children[ch]
+                ls2 = LETTER_POINTS.get(ch, 0)
+
+            mod2 = M[nxt]
+            if mod2 == 'DL': ls2 *= 2
+            elif mod2 == 'TL': ls2 *= 3
+            elif mod2 == 'DW': wm2 *= 2
+            elif mod2 == 'TW': wm2 *= 3
+
+            sc2 += ls2
+            new_path = path + [nxt]
+
+            if node2.word and node2.word not in found:
+                found[node2.word] = (sc2*wm2, new_path[:])
+
+            stack.append((nxt, node2, vis | (1<<nxt), sc2, wm2, new_path))
+
+    return found
+
+class BoggleSolver:
+    def __init__(
+        self,
+        board: List[List[str]],
+        modifiers: List[List[str]],
+        words: List[str]
+    ):
+        self.B = [ch.lower() for row in board for ch in row]
+        self.M = [mod for row in modifiers for mod in row]
+
+        # neighbors
+        self.neighbors = [[] for _ in range(GRID_SIZE**2)]
+        for r in range(GRID_SIZE):
+            for c in range(GRID_SIZE):
+                i = r*GRID_SIZE + c
+                for dr in (-1, 0, 1):
+                    for dc in (-1, 0, 1):
+                        if dr or dc:
+                            rr, cc = r+dr, c+dc
+                            if 0 <= rr < GRID_SIZE and 0 <= cc < GRID_SIZE:
+                                self.neighbors[i].append(rr*GRID_SIZE + cc)
+
+        # build/load trie
+        h = board_hash([
+            self.B[i:i+GRID_SIZE]
+            for i in range(0, GRID_SIZE**2, GRID_SIZE)
+        ])
+        trie_file = os.path.join(TRIE_CACHE_DIR, f"{h}.trie.pkl")
+        if os.path.exists(trie_file):
+            self.trie_root = pickle.load(open(trie_file, 'rb'))
+        else:
+            self.trie_root = BoggleSolver.build_trie(words)
+            pickle.dump(self.trie_root, open(trie_file, 'wb'))
+
+    @staticmethod
+    def build_trie(words: List[str]) -> TrieNode:
+        root = TrieNode()
+        for w in words:
+            node = root
+            for ch in w:
+                node = node.children.setdefault(ch, TrieNode())
+            node.word = w
+        return root
+
+    def find_all_words(self) -> Dict[str, Tuple[int, List[Tuple[int,int]]]]:
+        # prepare args
+        args = [
+            (i, self.B, self.M, self.neighbors, self.trie_root)
+            for i in range(GRID_SIZE**2)
+        ]
+
+        # sequential DFS so KeyboardInterrupt is handled
+        results = list(map(_dfs_worker, args))
+
+        combined: Dict[str, Tuple[int, List[int]]] = {}
+        for part in results:
+            combined.update(part)
+
+        # convert to (row,col)
+        return {
+            w: (pts, [(i//GRID_SIZE, i%GRID_SIZE) for i in path])
+            for w, (pts, path) in combined.items()
+        }
+
+def generate_random_board(dice: List[str]) -> List[List[str]]:
+    import random
+    sel = [random.choice(d) for d in random.sample(dice, len(dice))]
+    return [sel[i:i+GRID_SIZE] for i in range(0, GRID_SIZE**2, GRID_SIZE)]

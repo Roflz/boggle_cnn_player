@@ -26,7 +26,10 @@ FEEDBACK_COLOR = "#ffd166"
 predictor = Predictor(MODEL_PATH)
 
 def tesseract_guess(pil_img):
-    return pytesseract.image_to_string(pil_img, config='--psm 10 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ').strip().upper()
+    return pytesseract.image_to_string(
+        pil_img,
+        config='--psm 10 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    ).strip().upper()
 
 class LabelGUI:
     def __init__(self):
@@ -52,25 +55,56 @@ class LabelGUI:
         self.img_label.pack(pady=10)
 
         self.info_font = font.Font(family="Courier", size=12)
-        self.info = tk.Label(self.root, text="", justify="left", font=self.info_font, fg=TEXT_COLOR, bg=BG_COLOR)
+        self.info = tk.Label(
+            self.root, text="", justify="left",
+            font=self.info_font, fg=TEXT_COLOR, bg=BG_COLOR
+        )
         self.info.pack()
 
         self.input_font = font.Font(family="Courier", size=13, weight="bold")
-        self.input_label = tk.Label(self.root, text="", font=self.input_font, fg=HIGHLIGHT_COLOR, bg=BG_COLOR, pady=6)
+        self.input_label = tk.Label(
+            self.root, text="", font=self.input_font,
+            fg=HIGHLIGHT_COLOR, bg=BG_COLOR, pady=6
+        )
         self.input_label.pack()
 
-        self.feedback = tk.Label(self.root, text="", fg=FEEDBACK_COLOR, font=("Helvetica", 12, "bold"), bg=BG_COLOR)
+        self.feedback = tk.Label(
+            self.root, text="", fg=FEEDBACK_COLOR,
+            font=("Helvetica", 12, "bold"), bg=BG_COLOR
+        )
         self.feedback.pack(pady=5)
 
         control_frame = Frame(self.root, bg=BG_COLOR)
         control_frame.pack(pady=8)
-        Button(control_frame, text="✅ Confirm (Enter)", command=self.confirm_tile, bg="#444", fg=TEXT_COLOR).pack(side="left", padx=8)
-        Button(control_frame, text="↩ Undo (Z)", command=self.undo_tile, bg="#444", fg=TEXT_COLOR).pack(side="left", padx=8)
-        Checkbutton(control_frame, text="Skip already labeled", variable=self.skip_existing, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
-        Checkbutton(control_frame, text="Use CNN as default", variable=self.use_cnn_guess, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
-        Checkbutton(control_frame, text="Skip high confidence tiles", variable=self.skip_high_confidence, bg=BG_COLOR, fg=TEXT_COLOR, selectcolor=BG_COLOR).pack(side="left", padx=8)
+        Button(
+            control_frame, text="✅ Confirm (Enter)",
+            command=self.confirm_tile, bg="#444", fg=TEXT_COLOR
+        ).pack(side="left", padx=8)
+        Button(
+            control_frame, text="↩ Undo (Z)",
+            command=self.undo_tile, bg="#444", fg=TEXT_COLOR
+        ).pack(side="left", padx=8)
+        Checkbutton(
+            control_frame, text="Skip already labeled",
+            variable=self.skip_existing, bg=BG_COLOR,
+            fg=TEXT_COLOR, selectcolor=BG_COLOR
+        ).pack(side="left", padx=8)
+        Checkbutton(
+            control_frame, text="Use CNN as default",
+            variable=self.use_cnn_guess, bg=BG_COLOR,
+            fg=TEXT_COLOR, selectcolor=BG_COLOR
+        ).pack(side="left", padx=8)
+        Checkbutton(
+            control_frame, text="Skip high confidence tiles",
+            variable=self.skip_high_confidence, bg=BG_COLOR,
+            fg=TEXT_COLOR, selectcolor=BG_COLOR
+        ).pack(side="left", padx=8)
 
-        self.help_label = tk.Label(self.root, text="1 = Normal   2 = DL   3 = TL   4 = DW   5 = TW", fg="#888", bg=BG_COLOR, font=("Courier", 10))
+        self.help_label = tk.Label(
+            self.root,
+            text="1 = Normal   2 = DL   3 = TL   4 = DW   5 = TW",
+            fg="#888", bg=BG_COLOR, font=("Courier", 10)
+        )
         self.help_label.pack()
 
         self.history_frame = Frame(self.root, bg=BG_COLOR)
@@ -81,11 +115,8 @@ class LabelGUI:
 
         self.root.bind("<Key>", self.key_press)
 
-        # Show total number of tiles at the start
         self.total_tiles = len(self.files)
-        self.index = 0
         self.show_progress()
-
         self.load_image()
         self.root.mainloop()
 
@@ -109,6 +140,8 @@ class LabelGUI:
             file = self.files[self.index]
             base = os.path.splitext(file)[0]
             if self.skip_existing.get() and base in self.labeled_basenames:
+                # delete even if skipping existing
+                self.delete_unlabeled(file)
                 self.index += 1
                 self.show_progress()
                 continue
@@ -123,16 +156,20 @@ class LabelGUI:
             self.last_guess = (self.cnn, self.cnn_bonus)
             self.bonus = self.cnn_bonus if self.cnn_bonus != 0 else 0
 
-            # Skip high-confidence tiles if checkbox is checked
-            if self.skip_high_confidence.get() and self.cnn_confidence >= 0.995 and self.bonus_confidence >= 0.995:
-                print(f"Skipping {file} with high CNN confidence. Letter Conf: {self.cnn_confidence:.4f}, Bonus Conf: {self.bonus_confidence:.4f}")
-                # Save skipped tile if not 100% confidence
-                if self.cnn_confidence < 1.0000 and self.bonus_confidence < 1.0000:
+            # Round confidences to 4 decimals
+            cnn_conf = round(self.cnn_confidence, 4)
+            bonus_conf = round(self.bonus_confidence, 4)
+
+            if self.skip_high_confidence.get() and cnn_conf >= 0.995 and bonus_conf >= 0.995:
+                print(f"Skipping {file} with high confidence. Letter {cnn_conf:.4f}, Bonus {bonus_conf:.4f}")
+                # delete tile regardless
+                self.delete_unlabeled(file)
+                # optionally save low-confidence only
+                if cnn_conf < 1.0000 and bonus_conf < 1.0000:
                     self.save_label(self.cnn)
                 self.index += 1
                 self.show_progress()
-                self.load_image()
-                return
+                continue
 
             self.feedback.config(text="")
             self.update_info()
@@ -141,31 +178,31 @@ class LabelGUI:
         messagebox.showinfo("Done", "All tiles labeled.")
         self.root.quit()
 
+    def delete_unlabeled(self, filename):
+        src = os.path.join(UNLABELED_DIR, filename)
+        try:
+            os.remove(src)
+            print(f"Deleted unlabeled tile: {filename}")
+        except Exception as e:
+            print(f"⚠️ Could not delete {filename}: {e}")
+
     def update_info(self):
         file = self.files[self.index]
         bonus_label = BONUS_CLASSES[self.bonus]
         default_letter = self.letter_override or (self.cnn if self.use_cnn_guess.get() else self.tess)
 
-        def color_conf(conf):
-            if conf >= 0.85:
-                return "green"
-            elif conf >= 0.65:
-                return "yellow"
-            return "red"
-
-        disagrees = self.cnn != self.tess and self.cnn != '?' and self.tess != '?'
+        disagrees = (self.cnn != self.tess and self.cnn != '?' and self.tess != '?')
         flag = "  ⚠️" if self.bonus_confidence < 0.65 else ""
 
         self.info.config(
-            text=(f"📄 File:            {file}\n"
-                  f"🔠 Tesseract Guess: {self.tess}{'  ⛔' if disagrees else ''}\n"
-                  f"🧠 CNN Guess:       {self.cnn} ({BONUS_CLASSES[self.cnn_bonus]}){flag}\n"
-                  f"   Letter Conf:     {self.cnn_confidence:.1%}\n"
-                  f"   Bonus Conf:      {self.bonus_confidence:.1%}\n"),
-            fg=TEXT_COLOR,
-            bg=BG_COLOR
+            text=(
+                f"📄 File:            {file}\n"
+                f"🔠 Tesseract Guess: {self.tess}{'  ⛔' if disagrees else ''}\n"
+                f"🧠 CNN Guess:       {self.cnn} ({bonus_label}){flag}\n"
+                f"   Letter Conf:     {self.cnn_confidence:.1%}\n"
+                f"   Bonus Conf:      {self.bonus_confidence:.1%}\n"
+            ), fg=TEXT_COLOR, bg=BG_COLOR
         )
-
         self.input_label.config(
             text=f"👉 Selected Input:  Letter = {default_letter}, Bonus = {bonus_label}"
         )
@@ -174,31 +211,30 @@ class LabelGUI:
         key = event.keysym.upper()
         if key == 'Q':
             self.letter_override = 'QU'
-            self.feedback.config(text=f"✔ Letter set to QU")
+            self.feedback.config(text="✔ Letter set to QU")
         elif key in string.ascii_uppercase:
             self.letter_override = key
             self.feedback.config(text=f"✔ Letter set to {key}")
-        elif key in ['1', '2', '3', '4', '5']:
+        elif key in ['1','2','3','4','5']:
             self.bonus = int(key) - 1
             self.feedback.config(text=f"✔ Bonus set to {BONUS_CLASSES[self.bonus]}")
-
         elif key == 'RETURN':
             self.confirm_tile()
         elif key == 'Z':
             self.undo_tile()
         elif key == 'ESCAPE':
             self.root.quit()
-
         self.update_info()
 
     def confirm_tile(self):
         letter = self.letter_override or (self.cnn if self.use_cnn_guess.get() else self.tess)
         self.save_label(letter)
+        self.delete_unlabeled(self.files[self.index])
         self.letter_override = None
         self.index += 1
         if self.cnn_bonus == 0:
             self.bonus = 0
-        self.update_info()
+        self.show_progress()
         self.flash_feedback("✔ Saved!", color="#8ef5a0")
         self.load_image()
 
